@@ -66,7 +66,7 @@ def e_number_info(codes: list[str], csv_path: str = "data/E Numbers.csv") -> dic
 API_BASE = "https://api.openalex.org/works"
 EMAIL = "xxibxxx9@gmail.com"
 
-def research_papers_openalex(
+def research_papers(
     ingredient: str,
     top: int = 5,
 ) -> list[tuple[str, str]]:
