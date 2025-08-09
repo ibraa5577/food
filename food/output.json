@@ -1,43 +1,28 @@
 {
   "serving_information": {
-    "serving_size": "30g",
-    "servings_per_container": 10.0
+    "serving_size": "",
+    "servings_per_container": 0.0
   },
   "nutritional_facts": {
-    "calories": 150.0,
-    "protein": 19.0,
+    "calories": 0.0,
+    "protein": 0.0,
     "carbohydrate": {
-      "total": 18.0,
-      "dietary_fiber": 2.0,
-      "total_sugars": 16.0,
+      "total": 0.0,
+      "dietary_fiber": 0.0,
+      "total_sugars": 0.0,
       "added_sugars": 0.0
     },
     "fat": {
-      "total": 8.0,
-      "saturated_fat": 3.0,
-      "trans_fat": 6.0
+      "total": 0.0,
+      "saturated_fat": 0.0,
+      "trans_fat": 0.0
     }
   },
   "micronutrients": [
     {
-      "name": "vitamin_d",
-      "value": 3.0,
-      "unit": "mcg"
-    },
-    {
-      "name": "calcium",
-      "value": 50.0,
-      "unit": "mg"
-    },
-    {
-      "name": "iron",
-      "value": 1.2,
-      "unit": "mg"
-    },
-    {
-      "name": "potassium",
-      "value": 180.0,
-      "unit": "mg"
+      "name": "",
+      "value": 0.0,
+      "unit": ""
     }
   ],
   "ingredients": [
@@ -55,19 +40,9 @@
     }
   ],
   "notes": {
-    "positive": [
-      "High in Protein"
-    ],
-    "neutral": [
-      "Contains Preservative"
-    ],
-    "negative": [
-      "High in Sugar",
-      "High in Saturated Fat",
-      "Contains Trans-Fat",
-      "Contains Allergen (Milk)",
-      "Contains Allergen (Soy)"
-    ],
+    "positive": [],
+    "neutral": [],
+    "negative": [],
     "critical": []
   }
 }
