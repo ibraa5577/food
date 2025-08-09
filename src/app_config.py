@@ -1,7 +1,4 @@
 
-# API Keys
-GEMINI_KEY = "AIzaSyAN3YJiIcU-LbClgsITnNaDg9zVd-zR9ko"
-
 # Models
 models = {
     "CLEANING_MODEL": "gemini-1.5-flash",
