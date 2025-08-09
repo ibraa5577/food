@@ -1,6 +1,6 @@
 
 import textwrap
-
+x = "Test"
 def cleaning_prompt(ocr_text: str) -> str:
     return f"""
 You are a data extraction assistant. Extract ONLY the English content from the given OCR food label.
