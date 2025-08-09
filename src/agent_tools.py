@@ -30,7 +30,7 @@ relevant_keywords = [
 def aliases(name: str, top: int = 20) -> list[str]:
     base = "https://pubchem.ncbi.nlm.nih.gov/rest/pug"
     url  = f"{base}/compound/name/{urllib.parse.quote(name)}/synonyms/JSON"
-    resp = requests.get(url, timeout=10).json()
+    resp = requests.get(url, timeout=20).json()
     if "InformationList" not in resp:   # if compound not found
         return []
     syns = resp['InformationList']['Information'][0].get('Synonym', [])
@@ -63,51 +63,52 @@ def e_number_info(codes: list[str], csv_path: str = "data/E Numbers.csv") -> dic
 
 #=========================== Research Papers ===========================
 
-def research_papers(ingredient: str, top: int = 5) -> list[tuple[str, str]]:
-    results = []
+API_BASE = "https://api.openalex.org/works"
+EMAIL = "xxibxxx9@gmail.com"
 
-    def is_relevant(title: str, ingredient: str) -> bool:
-        title_lower = title.lower()
-        return (
-            ingredient.lower() in title_lower and
-            any(keyword in title_lower for keyword in relevant_keywords)
-        )
+def research_papers_openalex(
+    ingredient: str,
+    top: int = 5,
+) -> list[tuple[str, str]]:
 
-    # Crossref API
+    params = {
+        "search": ingredient,
+        "per-page": top * 5,  # overfetch to allow room for filtering/sorting
+        "mailto": EMAIL,
+    }
+
     try:
-        query_cr = f"{ingredient} food nutrition health metabolism additive"
-        url_cr = f"https://api.crossref.org/works?query={query_cr}&rows={top}"
-        headers = {"User-Agent": "IbrahimResearchBot/1.0 (mailto:abrahymalshay5@gmail.com)"}
-        cr_resp = requests.get(url_cr, headers=headers, timeout=20).json()
-        cr_items = cr_resp.get("message", {}).get("items", [])
-        for item in cr_items:
-            title = item.get("title", [""])[0]
-            doi = item.get("DOI", "")
-            if title and doi and is_relevant(title, ingredient):
-                results.append((title, doi))
-    except Exception as e:
-        print("Crossref error:", e)
+        resp = requests.get(API_BASE, params=params, timeout=20)
+        resp.raise_for_status()
+        data = resp.json()
 
-    # Semantic Scholar API
-    try:
-        query_ss = f"{ingredient} ingredient"
-        url_ss = "https://api.semanticscholar.org/graph/v1/paper/search"
-        params = {
-            "query": query_ss,
-            "fields": "title,doi",
-            "limit": top
-        }
-        ss_resp = requests.get(url_ss, params=params, timeout=20).json()
-        for item in ss_resp.get("data", []):
-            title = item.get("title", "")
-            doi = item.get("doi", "")
-            if title and doi and is_relevant(title, ingredient):
-                results.append((title, doi))
-    except Exception as e:
-        print("Semantic Scholar error:", e)
+        scored_results = []
+        for item in data.get("results", []):
+            if item.get("language") != "en":
+                continue
+            if not item.get("open_access", {}).get("is_oa", False):
+                continue
 
-    return results
+            concepts = item.get("concepts", [])
+            keywords = item.get("keywords", [])
 
+            # Calculate a simple relevance score: sum of concept + keyword scores
+            score = sum(c.get("score", 0) for c in concepts if c.get("score", 0) >= 0.3)
+            score += sum(k.get("score", 0) for k in keywords if k.get("score", 0) >= 0.3)
+
+            if score > 0:
+                title = item.get("display_name")
+                doi = item.get("doi") or item.get("ids", {}).get("doi")
+                if title and doi:
+                    scored_results.append((score, title, doi))
+
+        # Sort by score descending and trim to top N
+        scored_results.sort(reverse=True)
+        return [(title, doi) for score, title, doi in scored_results[:top]]
+
+    except requests.RequestException as e:
+        print("OpenAlex request error:", e)
+        return []
 
 
 
