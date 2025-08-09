@@ -1,7 +1,6 @@
 
-x= "test"
 # API Keys
-GEMINI_KEY = "AIzaSyCPW2ap0HVNp-3VX_yxir5Zl1JjJIq_648"
+GEMINI_KEY = "AIzaSyAN3YJiIcU-LbClgsITnNaDg9zVd-zR9ko"
 
 # Models
 models = {
