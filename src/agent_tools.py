@@ -68,7 +68,7 @@ EMAIL = "xxibxxx9@gmail.com"
 
 def research_papers(
     ingredient: str,
-    top: int = 5,
+    top: int = 3,
 ) -> list[tuple[str, str]]:
 
     params = {

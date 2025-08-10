@@ -35,7 +35,7 @@ e_number_schema = {
 
 research_papers_schema = {
     "name": "get_research_papers",
-    "description": "Retrieves research paper titles and DOIs related to a food ingredient from public APIs like Crossref and Semantic Scholar.",
+    "description": "Retrieves research paper titles and DOIs related to a food ingredient from public API",
     "parameters": {
         "type": "object",
         "properties": {
@@ -46,9 +46,9 @@ research_papers_schema = {
             "top": {
                 "type": "integer",
                 "description": "The number of top results to return from each source (default: 5, max: 10).",
-                "default": 5,
+                "default": 3,
                 "minimum": 1,
-                "maximum": 10
+                "maximum": 4
             }
         },
         "required": ["ingredient"]

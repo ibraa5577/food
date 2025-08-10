@@ -1,8 +1,8 @@
 
 # Models
 models = {
-    "CLEANING_MODEL": "gemini-1.5-flash",
-    "AGENT_MODEL": "gemini-1.5-flash",
+    "CLEANING_MODEL": "gemini-2.5-flash",
+    "AGENT_MODEL": "gemini-2.5-flash",
     "FORMATTER_MODEL": "gemini-1.5-flash"
 }
 
