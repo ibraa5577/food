@@ -1,4 +1,8 @@
 
+
+# API Keys
+GEMINI_KEY = "AIzaSyCPW2ap0HVNp-3VX_yxir5Zl1JjJIq_648"
+
 # Models
 models = {
     "CLEANING_MODEL": "gemini-1.5-flash",
@@ -49,7 +53,7 @@ FORMATTER_SCHEMA = {
         "warnings": [],
         "allergens": []
       },
-      "banned": "false",
+      "banned": "",
       "research_papers": []
     }
   ],

@@ -103,70 +103,45 @@ use them all for every single ingredient
 
 def formatter_prompt(schema_str, agent_out, cleaned_ocr) -> str:
     return textwrap.dedent(f"""
-        You are a food-label extraction assistant.
-        Return ONLY a JSON object matching the schema below. Include every key, even if empty or zero.
-        Add any extra nutrition fields present, but always keep the four base keys.
-        {schema_str}
+You are a food label extraction assistant. Your task is to produce a single valid JSON object, matching the following schema exactly, using information from the agent output and the cleaned OCR. Only include values present in the sources; use default values for missing keys as specified.
 
-        RULES:
-        1. Use double quotes for all keys/strings; booleans in lowercase.
-        2. Keep key order as in schema.
-        3. For missing values: use "" (string), 0.0 (number), false (boolean), [] (list).
-        4. “research_papers”: list of {{title, doi}} (empty if none).
-        5. “safety.warnings”: list of {{warning, region}} (empty if none).
-        6. Add a brief description for each ingredient if missing.
-        7. No comments, markdown, single quotes, back-ticks, or trailing commas.
-        8. If serving_size missing: "", if serving_per_container missing: 0.0.
-        9. If micronutrients missing: [] (empty list).
-        10. Output must be valid JSON (parse with json.loads()).
+SCHEMA:
+{schema_str}
 
-        NOTES:
-        - "notes" is a dict with 4 keys: "positive", "neutral", "negative", "critical".
-        - Each is a list of unique flags, in this order: positive, neutral, negative, critical.
-        - Example:
-          "notes": {{
-            "positive": ["Low Sugar", "High in Protein"],
-            "neutral": ["Contains Preservative"],
-            "negative": ["High in Sugar", "Contains Allergen (Milk)"],
-            "critical": ["Contains Banned Ingredient (Potassium Bromate) – Banned in EU, UK, Canada, China, India – Reason: Carcinogenic in animal studies ⚫️"]
-          }}
+STRICT EXTRACTION AND OUTPUT RULES:
+1. Output must be a single JSON object matching the schema above exactly. Do not add, remove, or reorder keys.
+2. All keys must be present, in the order shown in the schema, even if empty or zero.
+3. Use only double quotes for all keys and strings. All booleans must be lowercase (true/false) inside double qoutation marks. No trailing commas.
+4. For missing or unavailable data:
+   - Use "" (empty string) for string fields.
+   - Use 0.0 for numeric fields.
+   - Use false for boolean fields.
+   - Use [] (empty list) for array fields.
+   - For objects or nested dicts, include all keys with appropriate default values.
+5. Do not include any instructional text, placeholders, or comments. Output only valid JSON.
+6. For ingredient lists, output each ingredient as an object with its required fields. If a field is missing, use its default.
+7. For "research_papers", always output a list of objects with "title" and "doi" keys, or an empty list if none.
+8. For "safety.warnings", always output a list of objects with "warning" or an empty list if none.
+9. For "notes", always output a dictionary with exactly these keys, in order: "positive", "neutral", "negative", "critical". Each must be a list (empty if no values).
+10. For "serving_info", if "serving_size" is not found, set to "". If "serving_per_container" is not found, set to 0.0.
+11. For "micronutrients", if not found, output an empty list [].
+12. All numeric values must be strings with units (e.g., "10 g", "100 mg", "50 kcal") if units are present in the source; otherwise, output as "0.0".
+13. Map all extracted fields to the schema's key names. If a value is present in either agent_out or cleaned_ocr, use it. If present in both, prefer agent_out.
+14. Never output any extraneous symbols, markdown, or prose.
 
-        - Assess nutrition per serving using WHO/EFSA thresholds:
-          sugar ≥15g → High in Sugar; ≤2.5g → Low Sugar
-          fat ≥15.6g → High in Fat; ≤3g → Low Fat
-          sat_fat ≥4g → High in Saturated Fat
-          trans_fat >0g → Contains Trans-Fat
-          cholesterol ≥60mg → High Cholesterol
-          sodium ≥460mg → High in Sodium; ≤115mg → Low Sodium
-          fibre ≥6g → High in Fibre; ≤1.4g → Low Fibre
-          protein ≥10g → High in Protein
-          vit_d ≥4µg → High in Vitamin D
-          calcium ≥260mg → High in Calcium
-          iron ≥3.6mg → High in Iron
-          potassium ≥940mg → High in Potassium
-          magnesium ≥84mg → High in Magnesium
-          zinc ≥3mg → High in Zinc
+PROCESS:
+1. Parse both agent_out and cleaned_ocr for all possible values for each schema key.
+2. For every field in the schema, use the value from agent_out if present, otherwise use cleaned_ocr, otherwise use the specified default.
+3. For lists of objects (such as ingredients), ensure each object contains all required keys with appropriate values or defaults.
+4. For nested objects, include all required keys even if empty or zero.
+5. Output only the final JSON object, valid and parseable by json.loads().
 
-        - Scan ingredients for flags:
-          • Artificial sweetener → negative
-          • Artificial color → neutral
-          • Preservative → neutral
-          • Banned ingredient → critical
-          • Common allergens (milk, egg, fish, shellfish, peanuts, tree nuts, wheat/gluten, soy, sesame, celery) or derivatives → negative ("Contains Allergen (X)")
-          • E-number allergens: E322 (soy), E1105 (egg), E441 (fish/pork/beef), E120 (insect/shellfish), E160d (anaphylaxis), E407a (seafood), E621–E635 (MSG)
-          • One allergen note per type.
 
-        - No duplicates in any list.
-
-        IMPORTANT:
-        - Output must match the schema exactly.
-        - notes must have 4 keys: "positive", "neutral", "negative", "critical"
-        - Return valid JSON ONLY—no markdown, comments, or prose.
-        - Every key and string in double quotes.
-        - Must pass json.loads().
-        - Include all info from agent output and cleaned OCR (ingredients and nutrition/micronutrients).
-
-        Messy text and OCR output:
-        \"\"\"Output of the agent (with information about ingredients): {agent_out}, ingredients and nutritions alone: {cleaned_ocr}\"\"\"
-    """)
+Few-shot examples:
+Example 1:
+agent_out = 
+INPUT DATA:
+Output of the agent: {agent_out}
+Cleaned OCR: {cleaned_ocr}
+""")
 

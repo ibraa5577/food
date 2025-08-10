@@ -42,7 +42,7 @@
   ],
   "ingredients": [
     {
-      "name": "",
+      "name": "Whole Grain Oats",
       "description": "",
       "category": "",
       "other_names": [],
@@ -50,20 +50,182 @@
         "warnings": [],
         "allergens": []
       },
-      "banned": "false",
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "Sugar",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "Corn Syrup",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "Palm Oil",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "Cocoa Powder",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "Whey Protein Concentrate",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "Skim Milk",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "Soy Lecithin",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "Salt",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "Natural Flavors",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "Artificial Flavors",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "BHT",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "Milk",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "Soy",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
+      "research_papers": []
+    },
+    {
+      "name": "E951",
+      "description": "",
+      "category": "",
+      "other_names": [],
+      "safety": {
+        "warnings": [],
+        "allergens": []
+      },
+      "banned": "",
       "research_papers": []
     }
   ],
   "notes": {
-    "positive": [
-      "High in Protein"
-    ],
+    "positive": [],
     "neutral": [],
-    "negative": [
-      "High in Sugar",
-      "Contains Allergen (Milk)",
-      "Contains Allergen (Soy)"
-    ],
+    "negative": [],
     "critical": []
   }
 }
