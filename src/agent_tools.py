@@ -100,7 +100,8 @@ def research_papers(
             if score > 0:
                 title = item.get("display_name")
                 if title:
-                    title = html.unescape(title)  # ✅ Decode Unicode/HTML entities
+                    title = html.unescape(title)  
+                    title = re.sub(r"<[^>]+>", "", title)
                 doi = item.get("doi") or item.get("ids", {}).get("doi")
                 if title and doi:
                     scored_results.append((score, title, doi))
