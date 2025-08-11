@@ -53,8 +53,8 @@
   "ingredients": [
     {
       "name": "Whole Grain Oats",
-      "description": "Whole grain oats are the seeds of the oat plant, Avena sativa, that are processed minimally and contain all three parts of the grain: the bran, germ, and endosperm. They are a good source of fiber and nutrients.",
-      "category": "Grain",
+      "description": "Whole grain oats are the seeds of the oat plant, consumed as a cereal grain. They are a good source of dietary fiber and various nutrients.",
+      "category": "Cereal",
       "other_names": [],
       "safety": {
         "warnings": [],
@@ -78,7 +78,7 @@
     },
     {
       "name": "Sugar",
-      "description": "Sugar, also known as sucrose or table sugar, is a common sweetener derived from sugarcane or sugar beets.",
+      "description": "Sugar, also known as sucrose or table sugar, is a naturally occurring carbohydrate found in many plants. It is widely used as a sweetener in food and beverages.",
       "category": "Sweetener",
       "other_names": [
         "sucrose",
@@ -107,33 +107,44 @@
       ]
     },
     {
-      "name": "Corn Syrup",
-      "description": "Corn syrup is a sweetener made from the starch of corn. It's often used in processed foods and beverages.",
-      "category": "Sweetener",
-      "other_names": [],
+      "name": "MSG",
+      "description": "MSG, or monosodium glutamate, is a sodium salt of the amino acid glutamic acid. It's used as a flavor enhancer in many foods.",
+      "category": "Seasoning",
+      "other_names": [
+        "Sodium glutamate",
+        "Glutamate, Sodium",
+        "MONOSODIUM GLUTAMATE",
+        "142-47-2",
+        "Sodium L-glutamate"
+      ],
       "safety": {
-        "warnings": [],
+        "warnings": [
+          "May cause neurological effects at high doses or chronic exposure, including memory impairment and neuronal injury (particularly in animal models)",
+          "May contribute to obesity and metabolic dysfunction through appetite dysregulation and altered hypothalamic signaling",
+          "May induce kidney damage at high doses or prolonged intake",
+          "May trigger transient symptoms (headache, flushing) in sensitive individuals when consumed in large amounts without food"
+        ],
         "allergens": []
       },
       "banned": false,
       "research_papers": [
         {
-          "title": "Severe NAFLD with hepatic necroinflammatory changes in mice fed trans fats and a high-fructose corn syrup equivalent",
-          "doi": "10.1152/ajpgi.90272.2008"
+          "title": "MSG-GAN: Multi-Scale Gradients for Generative Adversarial Networks",
+          "doi": "10.1109/cvpr42600.2020.00782"
         },
         {
-          "title": "Consumption of Fructose and High Fructose Corn Syrup Increase Postprandial Triglycerides, LDL-Cholesterol, and Apolipoprotein-B in Young Men and Women",
-          "doi": "10.1210/jc.2011-1251"
+          "title": "Monosodium glutamate (MSG)-obese rats develop glucose intolerance and insulin resistance to peripheral glucose uptake",
+          "doi": "10.1590/s0100-879x1997000500016"
         },
         {
-          "title": "High-fructose corn syrup: is this what's for dinner?",
-          "doi": "10.3945/ajcn.2008.25825c"
+          "title": "A new Saharan dust source activation frequency map derived from MSG\u2010SEVIRI IR\u2010channels",
+          "doi": "10.1029/2007gl030168"
         }
       ]
     },
     {
       "name": "Palm Oil",
-      "description": "Palm oil is a type of vegetable oil extracted from the fruit of the oil palm tree. It's widely used in food and other products.",
+      "description": "Palm oil is an edible vegetable oil derived from the fruit of the oil palm tree. It is widely used in food processing and other industries.",
       "category": "Oil",
       "other_names": [],
       "safety": {
@@ -158,7 +169,7 @@
     },
     {
       "name": "Cocoa Powder",
-      "description": "Cocoa powder is a powder made from roasted and ground cocoa beans. It's used to add chocolate flavor and color to foods.",
+      "description": "Cocoa powder is a product derived from cocoa beans after removing the cocoa butter. It is commonly used as a flavoring ingredient and source of antioxidants in many foods.",
       "category": "Flavoring",
       "other_names": [],
       "safety": {
@@ -183,7 +194,7 @@
     },
     {
       "name": "Whey Protein Concentrate",
-      "description": "Whey protein concentrate is a dairy product made from the liquid part of milk remaining after cheese production. It's a source of protein.",
+      "description": "Whey protein concentrate is a byproduct of cheese production. It is a rich source of protein and is often used as a dietary supplement or ingredient in various food products.",
       "category": "Protein Supplement",
       "other_names": [],
       "safety": {
@@ -210,7 +221,7 @@
     },
     {
       "name": "Skim Milk",
-      "description": "Skim milk is cow's milk that has had most of its fat removed.",
+      "description": "Skim milk is cow's milk that has had most of its fat removed. It is a good source of protein and calcium.",
       "category": "Dairy",
       "other_names": [],
       "safety": {
@@ -237,7 +248,7 @@
     },
     {
       "name": "Soy Lecithin",
-      "description": "Soy lecithin is a phospholipid extracted from soybeans. It's used as an emulsifier in food.",
+      "description": "Soy lecithin is a phospholipid derived from soybeans. It is widely used as an emulsifier in food products.",
       "category": "Emulsifier",
       "other_names": [],
       "safety": {
@@ -264,7 +275,7 @@
     },
     {
       "name": "Salt",
-      "description": "Salt, or sodium chloride, is a common seasoning and preservative in food.",
+      "description": "Salt, primarily sodium chloride, is a common seasoning and preservative used in various food products. It enhances flavor and inhibits microbial growth.",
       "category": "Seasoning",
       "other_names": [
         "sodium chloride",
@@ -295,7 +306,7 @@
     },
     {
       "name": "Natural Flavors",
-      "description": "Natural flavors are substances derived from natural sources that are used to enhance the taste of food.",
+      "description": "Natural flavors are substances derived from natural sources, such as fruits, spices, or herbs, that impart flavor to food products.",
       "category": "Flavoring",
       "other_names": [],
       "safety": {
@@ -320,7 +331,7 @@
     },
     {
       "name": "Artificial Flavors",
-      "description": "Artificial flavors are synthetically produced substances used to enhance the taste of food.",
+      "description": "Artificial flavors are synthetically produced substances that mimic the taste and aroma of natural flavors.",
       "category": "Flavoring",
       "other_names": [],
       "safety": {
@@ -345,13 +356,13 @@
     },
     {
       "name": "BHT",
-      "description": "BHT, or butylated hydroxytoluene, is a synthetic antioxidant used to prevent rancidity in food.",
+      "description": "BHT, or butylated hydroxytoluene, is a synthetic antioxidant used as a food preservative to prevent rancidity.",
       "category": "Antioxidant",
       "other_names": [
         "2,6-Di-tert-butyl-4-methylphenol",
         "128-37-0",
         "2,6-Di-tert-butyl-p-cresol",
-        "butylhydroxytoluene",
+        "Butylhydroxytoluene",
         "2,6-Di-t-butyl-4-methylphenol"
       ],
       "safety": {
@@ -372,7 +383,7 @@
     },
     {
       "name": "Milk",
-      "description": "Milk is a nutrient-rich liquid produced by mammals. Cow's milk is commonly consumed by humans.",
+      "description": "Milk is a nutrient-rich liquid produced by mammals. It is widely consumed as a beverage and used in various food products.",
       "category": "Dairy",
       "other_names": [],
       "safety": {
@@ -399,7 +410,7 @@
     },
     {
       "name": "Soy",
-      "description": "Soy is a legume that is a source of protein and other nutrients. It's commonly used in various food products.",
+      "description": "Soy is a legume and a source of protein and isoflavones. It is used in various forms in human diets.",
       "category": "Legume",
       "other_names": [],
       "safety": {
@@ -426,14 +437,14 @@
     },
     {
       "name": "E951",
-      "description": "Aspartame, also known as E951, is an artificial sweetener.",
+      "description": "Aspartame, also known as E951, is an artificial sweetener used as a sugar substitute in many foods and beverages.",
       "category": "Sweetener",
       "other_names": [
         "aspartame",
         "22839-47-0",
-        "nutrasweet",
-        "asp-phe-ome",
-        "aspartam"
+        "Nutrasweet",
+        "Asp-phe-ome",
+        "Aspartam"
       ],
       "safety": {
         "warnings": [],
@@ -460,13 +471,9 @@
     "positive": [
       "High in Protein"
     ],
-    "neutral": [
-      "Contains Preservative (BHT)"
-    ],
+    "neutral": [],
     "negative": [
       "High in Sugar",
-      "Contains Artificial Sweetener (E951)",
-      "High in Saturated Fat",
       "Contains Trans-Fat"
     ],
     "critical": []

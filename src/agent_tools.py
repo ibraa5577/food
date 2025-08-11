@@ -125,7 +125,7 @@ def ing_desc(ing):
 #=========================== Get Warnings ===========================
 def warnings(ingredient):
   if ingredient.lower() in warning_df.index:
-    warnings_data = warning_df.loc[ingredient].to_dict()
+    warnings_data = warning_df.loc[ingredient.lower()].to_dict()
     return helper_funcs.parse_warning_data(warnings_data)
   else:
     return {"warnings": [], "confidence scores": [], "related papers": []}
