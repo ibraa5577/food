@@ -12,8 +12,8 @@ models = {
 
 
 # Paths
-warnings_path = "src/data/Warnings.csv"
-e_numbers_path = "src/data/E Numbers.csv"
+warnings_path = "data/Warnings.csv"
+e_numbers_path = "data/E Numbers.csv"
 
 # Other Configurations
 FORMATTER_SCHEMA = {
@@ -53,8 +53,13 @@ FORMATTER_SCHEMA = {
         "warnings": [],
         "allergens": []
       },
-      "banned": "",
-      "research_papers": []
+      "banned": "false",
+      "research_papers": [
+        {
+          "title": "",
+          "doi": ""
+        }
+      ]
     }
   ],
   "notes": {

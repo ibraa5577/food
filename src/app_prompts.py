@@ -79,69 +79,137 @@ all nutrition values you should add to them the units, like "g", "mg", "µg", "k
 
 def agent_prompt(cleaned_ocr: str) -> str:
     return f"""
-You will receive a JSON block with two keys:
-
-• "ingredients": a flat list of ingredient strings
-• "nutrition":   an object with nutrient → value pairs
+You will receive a JSON block with:
+• "ingredients": flat list of ingredient strings
+• "nutrition": object with nutrient → value pairs
 
 JSON INPUT
 ----------
 {cleaned_ocr}
-If no ingredient provided, output the nutritional facts as json (big Key is "nutrition", another dictionary
-containing them, and their values are their amount)
 
-
-TOOL CATALOG
--------------
+TOOLS
+-----
 1. get_aliases(name:str, top:int=20)
 2. get_e_number_info(code:str)
 3. get_research_papers(query:str)
-4. get_warnings(query:str
-use them all for every single ingredient
+4. get_warnings(query:str)
+
+For every ingredient name (and any detected E-number), attempt all tools. If a tool yields nothing, return empty results. Do not fabricate data.
+Output a Python-serializable dict keyed by ingredient name containing these tool outputs.
 """
 
 
 def formatter_prompt(schema_str, agent_out, cleaned_ocr) -> str:
     return textwrap.dedent(f"""
-You are a food label extraction assistant. Your task is to produce a single valid JSON object, matching the following schema exactly, using information from the agent output and the cleaned OCR. Only include values present in the sources; use default values for missing keys as specified.
+You are a food label extraction assistant. Produce ONE valid JSON object that matches the given SCHEMA exactly. Use only values found in the inputs; if missing, use the specified defaults.
 
-SCHEMA:
+INPUTS
+------
+1) agent_out: a dict keyed by ingredient name. Each value may include results from tools:
+   - get_aliases: [alias, ...]
+   - get_research_papers: [(title, doi_url_or_doi), ...]
+   - get_warnings: {{ "warnings": [str], "confidence scores": [num], "related papers": [str] }}
+   - get_e_number_info: {{ "EXXX": {{ "name": str, "purpose": str, "status": str }} }}
+2) cleaned_ocr: JSON extracted from OCR (serving size/info, macro nutrients, etc.)
+3) schema_str: a string representation of the SCHEMA to match.
+INPUTS
+------
+AGENT_OUT
+---------
+{agent_out}
+
+CLEANED_OCR
+-----------
+{cleaned_ocr}
+
+SCHEMA
+------
 {schema_str}
 
-STRICT EXTRACTION AND OUTPUT RULES:
-1. Output must be a single JSON object matching the schema above exactly. Do not add, remove, or reorder keys.
-2. All keys must be present, in the order shown in the schema, even if empty or zero.
-3. Use only double quotes for all keys and strings. All booleans must be lowercase (true/false) inside double qoutation marks. No trailing commas.
-4. For missing or unavailable data:
-   - Use "" (empty string) for string fields.
-   - Use 0.0 for numeric fields.
-   - Use false for boolean fields.
-   - Use [] (empty list) for array fields.
-   - For objects or nested dicts, include all keys with appropriate default values.
-5. Do not include any instructional text, placeholders, or comments. Output only valid JSON.
-6. For ingredient lists, output each ingredient as an object with its required fields. If a field is missing, use its default.
-7. For "research_papers", always output a list of objects with "title" and "doi" keys, or an empty list if none.
-8. For "safety.warnings", always output a list of objects with "warning" or an empty list if none.
-9. For "notes", always output a dictionary with exactly these keys, in order: "positive", "neutral", "negative", "critical". Each must be a list (empty if no values).
-10. For "serving_info", if "serving_size" is not found, set to "". If "serving_per_container" is not found, set to 0.0.
-11. For "micronutrients", if not found, output an empty list [].
-12. All numeric values must be strings with units (e.g., "10 g", "100 mg", "50 kcal") if units are present in the source; otherwise, output as "0.0".
-13. Map all extracted fields to the schema's key names. If a value is present in either agent_out or cleaned_ocr, use it. If present in both, prefer agent_out.
-14. Never output any extraneous symbols, markdown, or prose.
 
-PROCESS:
-1. Parse both agent_out and cleaned_ocr for all possible values for each schema key.
-2. For every field in the schema, use the value from agent_out if present, otherwise use cleaned_ocr, otherwise use the specified default.
-3. For lists of objects (such as ingredients), ensure each object contains all required keys with appropriate values or defaults.
-4. For nested objects, include all required keys even if empty or zero.
-5. Output only the final JSON object, valid and parseable by json.loads().
+HARD RULES
+----------
+1) Output MUST be one JSON object matching the SCHEMA keys, nesting, and order exactly. No markdown, no prose, no comments, no extra keys, no emojis.
+2) Types:
+   - Strings: use "" if missing.
+   - Numbers: use 0.0 if missing.
+   - Booleans: use true/false (never quoted).
+   - Arrays: [] if empty.
+   - Objects: include all required keys with defaults if missing.
+3) Place units ONLY in `micronutrients[i].unit`. All values in `nutritional_facts` are plain numbers (per serving). Do NOT append unit strings there.
+4) `ingredients[*].banned` MUST be boolean. If no banned info is present, set false. If any source explicitly states banned, set true.
+5) `ingredients[*].research_papers` MUST be a list of objects with keys `"title"` and `"doi"`. If the second element of a tuple is a URL, convert to a DOI string if present in the URL (strip prefixes like "https://doi.org/"); otherwise keep the URL string as the doi value.
+6) Deduplicate all lists (`other_names`, warnings, allergens, research papers by (title, doi)).
+7) Normalize obvious E-number aliases in ingredients if present (e.g., prefer "E951" to "Aspartame" when OCR shows both; keep both by listing the other in `other_names`).
+8) No trailing commas. Must pass `json.loads()`.
 
+MAPPING AND PRIORITY
+--------------------
+1) When a field exists in both agent_out and cleaned_ocr, prefer agent_out for (aliases, papers, warnings), and cleaned_ocr for (serving and numeric nutrient values).
+2) Serve per-serving values:
+   - nutritional_facts.calories, protein, carbohydrate.total, carbohydrate.dietary_fiber, carbohydrate.total_sugars, carbohydrate.added_sugars, fat.total, fat.saturated_fat, fat.trans_fat
+   - If units are provided in OCR, parse the numeric and drop the unit (store units only in micronutrients list).
+3) Micronutrients: produce a list of objects [{{ "name": str, "value": float, "unit": str }}]
+   Examples: cholesterol (mg), sodium (mg), vitamin d (µg), calcium (mg), iron (mg), potassium (mg), magnesium (mg), zinc (mg). If missing, leave the list empty.
 
-Few-shot examples:
-Example 1:
-agent_out = 
-INPUT DATA:
-Output of the agent: {agent_out}
-Cleaned OCR: {cleaned_ocr}
+INGREDIENT ENRICHMENT
+---------------------
+For each ingredient:
+- name: from key in agent_out or OCR.
+- description: brief 1-2 sentence summary (what it is, purpose, source).
+- category: use source category if present, else classify into one of:
+  ["Sweetener","Dairy","Grain","Protein","Protein Supplement","Fat","Oil","Emulsifier","Preservative","Coloring","Flavoring","Acidifier","Stabilizer","Thickener","Antioxidant","Leavening","Humectant","Fortificant","Spice","Herb","Legume","Nut","Fruit","Vegetable","Cereal","Seaweed","Additive","Seasoning"]
+- other_names: use get_aliases and obvious synonyms, deduped.
+- safety.warnings: short strings from get_warnings.warnings (if any).
+- safety.allergens: standard allergens if applicable (e.g., ["Milk","Soy","Egg","Peanut","Tree Nuts","Fish","Crustacean","Wheat","Gluten","Sesame","Mustard","Celery","Lupin","Sulphites"]).
+- banned: per HARD RULES #4.
+- research_papers: per HARD RULES #5.
+- Note: Purpose (Catagory) of Salt is Seasoning/Perservative
+
+NOTES CONSTRUCTION
+------------------
+Compute per serving from the numeric fields. Use these thresholds:
+- sugar = nutritional_facts.carbohydrate.total_sugars (g)
+  • ≥15 → "High in Sugar" ; ≤2.5 → "Low Sugar"
+- fat = nutritional_facts.fat.total (g)
+  • ≥15.6 → "High in Fat" ; ≤3 → "Low Fat"
+- sat_fat = nutritional_facts.fat.saturated_fat (g)
+  • ≥4 → "High in Saturated Fat"
+- trans_fat = nutritional_facts.fat.trans_fat (g)
+  • >0 → "Contains Trans-Fat"
+- fibre = nutritional_facts.carbohydrate.dietary_fiber (g)
+  • ≥6 → "High in Fibre" ; ≤1.4 → "Low Fibre"
+- protein = nutritional_facts.protein (g)
+  • ≥10 → "High in Protein"
+- cholesterol (mg) and sodium (mg) from micronutrients list:
+  • cholesterol ≥60 → "High Cholesterol"
+  • sodium ≥460 → "High in Sodium" ; ≤115 → "Low Sodium"
+- Vitamins/minerals from micronutrients (use their units):
+  • vit d ≥4 µg → "High in Vitamin D"
+  • calcium ≥260 mg → "High in Calcium"
+  • iron ≥3.6 mg → "High in Iron"
+  • potassium ≥940 mg → "High in Potassium"
+  • magnesium ≥84 mg → "High in Magnesium"
+  • zinc ≥3 mg → "High in Zinc"
+
+Ingredient-based flags (dedupe; one allergen note per type):
+- If any ingredient has category "Sweetener" and is artificial (not natural) → add "Contains Artificial Sweetener (INGREDIENT_NAME)" to negative.
+- If any ingredient has category "Coloring" and is artificial → add "Contains Artificial Color (INGREDIENT_NAME)" to neutral.
+- If any ingredient has category "Preservative" → add "Contains Preservative (INGREDIENT_NAME)" to neutral.
+- If any ingredient is banned in any region (Region is given) → add "Contains Banned Ingredient (NAME) in (REGION)" to critical.
+- Allergen notes: "Contains Allergen (X)" for any present allergen (Milk, Eggs, Fish, Shellfish/Crustacean, Peanuts, Tree Nuts, Wheat, Gluten, Soy, Sesame, Mustard, Celery, Lupin, Sulphites).
+- E-number allergen hints:
+  • E322 → Soy
+  • E1105 → Egg
+  • E441 → Fish/Pork/Beef (gelatin) — pick the explicit source if provided
+  • E120 → insect/shellfish cross-reactivity
+  • E160d → Annatto (rare anaphylaxis)
+  • E407a → seaweed/seafood cross-reactivity
+  • E621–E635 → MSG intolerance
+
+OUTPUT
+------
+Return ONLY the final JSON object. No extra text.
+Use the SCHEMA key order. Ensure it parses with json.loads().
 """)
 

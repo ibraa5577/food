@@ -25,6 +25,16 @@
       "unit": "mcg"
     },
     {
+      "name": "cholesterol",
+      "value": 16.0,
+      "unit": "mg"
+    },
+    {
+      "name": "sodium",
+      "value": 120.0,
+      "unit": "mg"
+    },
+    {
       "name": "calcium",
       "value": 50.0,
       "unit": "mg"
@@ -43,189 +53,404 @@
   "ingredients": [
     {
       "name": "Whole Grain Oats",
-      "description": "",
-      "category": "",
+      "description": "Whole grain oats are the seeds of the oat plant, eaten as a cereal grain. They are a good source of fiber and nutrients.",
+      "category": "Grain",
       "other_names": [],
       "safety": {
         "warnings": [],
         "allergens": []
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "Synergetic effects of Lactobacillus plantarum and Rhizopus oryzae on physicochemical, nutritional and antioxidant properties of whole-grain oats (Avena sativa L.) during solid-state fermentation",
+          "doi": "10.1016/j.lwt.2021.112687"
+        },
+        {
+          "title": "Impact of whole grains on the gut microbiota: the next frontier for oats?",
+          "doi": "10.1017/s0007114514002244"
+        },
+        {
+          "title": "Oats, more than just a whole grain: an introduction",
+          "doi": "10.1017/s0007114514002712"
+        }
+      ]
     },
     {
       "name": "Sugar",
-      "description": "",
-      "category": "",
-      "other_names": [],
+      "description": "Sugar is a sweet, crystalline carbohydrate used as a sweetener in food and drinks.  It is primarily sucrose, extracted from sugarcane or sugar beets.",
+      "category": "Sweetener",
+      "other_names": [
+        "sucrose",
+        "57-50-1",
+        "saccharose",
+        "table sugar"
+      ],
       "safety": {
         "warnings": [],
         "allergens": []
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "Top Value Added Chemicals from Biomass: Volume I -- Results of Screening for Potential Candidates from Sugars and Synthesis Gas",
+          "doi": "10.2172/15008859"
+        },
+        {
+          "title": "Evidence for sugar addiction: Behavioral and neurochemical effects of intermittent, excessive sugar intake",
+          "doi": "10.1016/j.neubiorev.2007.04.019"
+        },
+        {
+          "title": "Sugar-Sweetened Beverages and Risk of Metabolic Syndrome and Type 2 Diabetes",
+          "doi": "10.2337/dc10-1079"
+        }
+      ]
     },
     {
       "name": "Corn Syrup",
-      "description": "",
-      "category": "",
+      "description": "Corn syrup is a sweetener made from the starch of corn.  It's often used in processed foods and beverages.",
+      "category": "Sweetener",
       "other_names": [],
       "safety": {
         "warnings": [],
         "allergens": []
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "Severe NAFLD with hepatic necroinflammatory changes in mice fed trans fats and a high-fructose corn syrup equivalent",
+          "doi": "10.1152/ajpgi.90272.2008"
+        },
+        {
+          "title": "Consumption of Fructose and High Fructose Corn Syrup Increase Postprandial Triglycerides, LDL-Cholesterol, and Apolipoprotein-B in Young Men and Women",
+          "doi": "10.1210/jc.2011-1251"
+        },
+        {
+          "title": "High-fructose corn syrup: is this what's for dinner?",
+          "doi": "10.3945/ajcn.2008.25825c"
+        }
+      ]
     },
     {
       "name": "Palm Oil",
-      "description": "",
-      "category": "",
+      "description": "Palm oil is an edible vegetable oil derived from the fruit of the oil palm tree. It is used extensively in food processing.",
+      "category": "Oil",
       "other_names": [],
       "safety": {
         "warnings": [],
         "allergens": []
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "Kinetics of palm oil transesterification in a batch reactor",
+          "doi": "10.1007/s11746-000-0198-y"
+        },
+        {
+          "title": "Palm oil refining",
+          "doi": "10.1002/ejlt.200600307"
+        },
+        {
+          "title": "Biological and Nutritional Properties of Palm Oil and Palmitic Acid: Effects on Health",
+          "doi": "10.3390/molecules200917339"
+        }
+      ]
     },
     {
       "name": "Cocoa Powder",
-      "description": "",
-      "category": "",
+      "description": "Cocoa powder is a powder made from roasted and processed cocoa beans. It is used to add chocolate flavor and color to food products.",
+      "category": "Flavoring",
       "other_names": [],
       "safety": {
         "warnings": [],
         "allergens": []
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "Effects of cocoa powder and dark chocolate on LDL oxidative susceptibility and prostaglandin concentrations in humans",
+          "doi": "10.1093/ajcn/74.5.596"
+        },
+        {
+          "title": "Cocoa powder enhances the level of antioxidative activity in rat plasma",
+          "doi": "10.1017/s0007114500002014"
+        },
+        {
+          "title": "Continuous intake of polyphenolic compounds containing cocoa powder reduces LDL oxidative susceptibility and has beneficial effects on plasma HDL-cholesterol concentrations in humans",
+          "doi": "10.1093/ajcn/85.3.709"
+        }
+      ]
     },
     {
       "name": "Whey Protein Concentrate",
-      "description": "",
-      "category": "",
+      "description": "Whey protein concentrate is a byproduct of cheese production, a protein powder rich in amino acids.",
+      "category": "Protein Supplement",
       "other_names": [],
       "safety": {
         "warnings": [],
-        "allergens": []
+        "allergens": [
+          "Milk"
+        ]
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "Whey Protein Concentrate Edible Film Activated with Cinnamon Essential Oil",
+          "doi": "10.1111/jfpp.12086"
+        },
+        {
+          "title": "Microstructural, textural, and sensory characteristics of probiotic yogurts fortified with sodium calcium caseinate or whey protein concentrate",
+          "doi": "10.3168/jds.2011-5297"
+        },
+        {
+          "title": "Production of antioxidant hydrolyzates from a whey protein concentrate with thermolysin: Optimization by response surface methodology",
+          "doi": "10.1016/j.lwt.2010.06.017"
+        }
+      ]
     },
     {
       "name": "Skim Milk",
-      "description": "",
-      "category": "",
+      "description": "Skim milk is cow's milk with most of the fat removed. It's a source of protein and calcium.",
+      "category": "Dairy",
       "other_names": [],
       "safety": {
         "warnings": [],
-        "allergens": []
+        "allergens": [
+          "Milk"
+        ]
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "An extensive outbreak of staphylococcal food poisoning due to low-fat milk in Japan: estimation of enterotoxin A in the incriminated milk and powdered skim milk",
+          "doi": "10.1017/s0950268802007951"
+        },
+        {
+          "title": "The Purification of a Lipoprotein Lipase from Bovine Skim Milk",
+          "doi": "10.1016/s0021-9258(19)44784-4"
+        },
+        {
+          "title": "Dissociation of the glycaemic and insulinaemic responses to whole and skimmed milk",
+          "doi": "10.1079/bjn20041304"
+        }
+      ]
     },
     {
       "name": "Soy Lecithin",
-      "description": "",
-      "category": "",
+      "description": "Soy lecithin is a natural emulsifier extracted from soybeans. It is used to improve texture and stability in food products.",
+      "category": "Emulsifier",
       "other_names": [],
       "safety": {
         "warnings": [],
-        "allergens": []
+        "allergens": [
+          "Soy"
+        ]
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "Oxidative Stability of Egg and Soy Lecithin as Affected by Transition Metal Ions and pH in Emulsion",
+          "doi": "10.1021/jf8022832"
+        },
+        {
+          "title": "Catastrophic inversion and rheological behavior in soy lecithin and Tween 80 based food emulsions",
+          "doi": "10.1016/j.jfoodeng.2012.12.008"
+        },
+        {
+          "title": "Pigmentation and carotenoid content of shrimp fed with Haematococcus pluvialis and soy lecithin",
+          "doi": "10.1111/j.1365-2095.2010.00794.x"
+        }
+      ]
     },
     {
       "name": "Salt",
-      "description": "",
-      "category": "",
-      "other_names": [],
+      "description": "Salt, primarily sodium chloride, is a common seasoning and preservative in many foods.",
+      "category": "Seasoning",
+      "other_names": [
+        "sodium chloride",
+        "7647-14-5",
+        "table salt",
+        "common salt",
+        "dendritis"
+      ],
       "safety": {
         "warnings": [],
         "allergens": []
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "Improving crop salt tolerance",
+          "doi": "10.1093/jxb/erh003"
+        },
+        {
+          "title": "Comparative physiology of salt and water stress",
+          "doi": "10.1046/j.0016-8025.2001.00808.x"
+        },
+        {
+          "title": "Bile salt biotransformations by human intestinal bacteria",
+          "doi": "10.1194/jlr.r500013-jlr200"
+        }
+      ]
     },
     {
       "name": "Natural Flavors",
-      "description": "",
-      "category": "",
+      "description": "Natural flavors are flavoring agents derived from natural sources, such as plants or fruits. They provide flavor to foods and beverages.",
+      "category": "Flavoring",
       "other_names": [],
       "safety": {
         "warnings": [],
         "allergens": []
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "Yukawa alignment from natural flavor conservation",
+          "doi": "10.1103/physrevd.84.055021"
+        },
+        {
+          "title": "Updated procedure for the safety evaluation of natural flavor complexes used as ingredients in food",
+          "doi": "10.1016/j.fct.2018.01.021"
+        },
+        {
+          "title": "FEMA GRAS assessment of natural flavor complexes: Citrus-derived flavoring ingredients",
+          "doi": "10.1016/j.fct.2018.11.052"
+        }
+      ]
     },
     {
       "name": "Artificial Flavors",
-      "description": "",
-      "category": "",
+      "description": "Artificial flavors are synthetic flavoring agents used to enhance or mimic the taste of natural ingredients in food products.",
+      "category": "Flavoring",
       "other_names": [],
       "safety": {
         "warnings": [],
         "allergens": []
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "Liquid Chromatographic Determination of Methyl Anthranilate in Artificially Flavored Nonalcoholic Beverages",
+          "doi": "10.1093/jaoac/84.2.493"
+        },
+        {
+          "title": "Preference of Calves for a Concentrate Feed with and Without Artificial Flavors",
+          "doi": "10.3168/jds.s0022-0302(61)89809-3"
+        },
+        {
+          "title": "Natural and Artificial Flavors",
+          "doi": "10.1126/science.317.5836.296d"
+        }
+      ]
     },
     {
       "name": "BHT",
-      "description": "",
-      "category": "",
-      "other_names": [],
+      "description": "Butylated hydroxytoluene (BHT) is a synthetic antioxidant that is commonly used as a food preservative.",
+      "category": "Antioxidant",
+      "other_names": [
+        "2,6-Di-tert-butyl-4-methylphenol",
+        "128-37-0",
+        "2,6-Di-tert-butyl-p-cresol",
+        "butylhydroxytoluene",
+        "2,6-Di-t-butyl-4-methylphenol"
+      ],
       "safety": {
         "warnings": [],
         "allergens": []
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "The influence of BHA, BHT and TBHQ on the oxidation stability of soybean oil ethyl esters (biodiesel)",
+          "doi": "10.1590/s0103-50532007000200026"
+        },
+        {
+          "title": "BHT Blocks NF\u2010<i>\u03ba</i>B activation and Ethanol\u2010Induced Brain Damage",
+          "doi": "10.1111/j.1530-0277.2006.00239.x"
+        }
+      ]
     },
     {
       "name": "Milk",
-      "description": "",
-      "category": "",
+      "description": "Milk is a nutritious beverage produced by mammals, typically cows, offering protein, calcium, and other nutrients.",
+      "category": "Dairy",
       "other_names": [],
       "safety": {
         "warnings": [],
-        "allergens": []
+        "allergens": [
+          "Milk"
+        ]
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "Spectrophotometric Assay Using o-Phthaldialdehyde for Determination of Proteolysis in Milk and Isolated Milk Proteins",
+          "doi": "10.3168/jds.s0022-0302(83)81926-2"
+        },
+        {
+          "title": "Exosomes with Immune Modulatory Features Are Present in Human Breast Milk",
+          "doi": "10.4049/jimmunol.179.3.1969"
+        },
+        {
+          "title": "Bovine milk in human nutrition \u2013 a review",
+          "doi": "10.1186/1476-511x-6-25"
+        }
+      ]
     },
     {
       "name": "Soy",
-      "description": "",
-      "category": "",
+      "description": "Soy is a legume and a valuable source of plant-based protein. It is also rich in isoflavones.",
+      "category": "Legume",
       "other_names": [],
       "safety": {
         "warnings": [],
-        "allergens": []
+        "allergens": [
+          "Soy"
+        ]
       },
-      "banned": "",
-      "research_papers": []
+      "banned": false,
+      "research_papers": [
+        {
+          "title": "The Clinical Importance of the Metabolite Equol\u2014A Clue to the Effectiveness of Soy and Its Isoflavones",
+          "doi": "10.1093/jn/132.12.3577"
+        },
+        {
+          "title": "Soy Protein, Isoflavones, and Cardiovascular Health",
+          "doi": "10.1161/circulationaha.106.171052"
+        },
+        {
+          "title": "Soy, Soy Foods and Their Role in Vegetarian Diets",
+          "doi": "10.3390/nu10010043"
+        }
+      ]
     },
     {
       "name": "E951",
-      "description": "",
-      "category": "",
-      "other_names": [],
+      "description": "Aspartame (E951) is an artificial sweetener used in many foods and beverages.",
+      "category": "Sweetener",
+      "other_names": [
+        "Aspartame"
+      ],
       "safety": {
         "warnings": [],
         "allergens": []
       },
-      "banned": "",
+      "banned": false,
       "research_papers": []
     }
   ],
   "notes": {
-    "positive": [],
-    "neutral": [],
-    "negative": [],
+    "positive": [
+      "High in Protein"
+    ],
+    "neutral": [
+      "Contains Preservative (BHT)"
+    ],
+    "negative": [
+      "High in Sugar",
+      "Contains Trans-Fat",
+      "Contains Artificial Sweetener (E951)"
+    ],
     "critical": []
   }
 }
