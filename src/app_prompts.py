@@ -94,7 +94,10 @@ TOOLS
 3. get_research_papers(query:str)
 4. get_warnings(query:str)
 
-For every ingredient name (and any detected E-number), attempt all tools. If a tool yields nothing, return empty results. Do not fabricate data.
+For every ingredient name (and any detected E-number), attempt all tools, even E-number ingredients, use all tools on
+these E-numbers as well, including the tools get_e_number_info, get_aliases,get_research, get_warnings.
+use each tool on each ingredient name and E-number once, don't recall the same tool on the same ingredient name or E-number.
+ If a tool yields nothing, return empty results. Do not fabricate data.
 Output a Python-serializable dict keyed by ingredient name containing these tool outputs.
 """
 
