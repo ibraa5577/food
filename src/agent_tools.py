@@ -9,7 +9,7 @@ import json
 # Function
 # Schema
 
-warning_df = pd.read_csv("data/Warnings.csv").set_index("ingredient")
+warning_df = pd.read_csv("src/data/Warnings.csv").set_index("ingredient")
 warning_df.index = warning_df.index.astype(str).str.strip().str.lower()
 relevant_keywords = [
     # Core food/health context
