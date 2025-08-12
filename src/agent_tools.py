@@ -5,6 +5,8 @@ import urllib.parse
 import re
 import json
 import app_config
+import requests
+import html
 
 # Function
 # Schema
@@ -92,25 +94,24 @@ def research_papers(
             concepts = item.get("concepts", [])
             keywords = item.get("keywords", [])
 
-            # Calculate a simple relevance score: sum of concept + keyword scores
             score = sum(c.get("score", 0) for c in concepts if c.get("score", 0) >= 0.3)
             score += sum(k.get("score", 0) for k in keywords if k.get("score", 0) >= 0.3)
 
             if score > 0:
                 title = item.get("display_name")
+                if title:
+                    title = html.unescape(title)  
+                    title = re.sub(r"<[^>]+>", "", title)
                 doi = item.get("doi") or item.get("ids", {}).get("doi")
                 if title and doi:
                     scored_results.append((score, title, doi))
 
-        # Sort by score descending and trim to top N
         scored_results.sort(reverse=True)
         return [(title, doi) for score, title, doi in scored_results[:top]]
 
     except requests.RequestException as e:
         print("OpenAlex request error:", e)
         return []
-
-
 
 
 
