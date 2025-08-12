@@ -4,14 +4,14 @@ import pandas as pd
 import urllib.parse
 import re
 import json
+import app_config
 import requests
 import html
-
 
 # Function
 # Schema
 
-warning_df = pd.read_csv("src/data/Warnings.csv").set_index("ingredient")
+warning_df = pd.read_csv(app_config.warnings_path).set_index("ingredient")
 warning_df.index = warning_df.index.astype(str).str.strip().str.lower()
 relevant_keywords = [
     # Core food/health context
@@ -41,7 +41,7 @@ def aliases(name: str, top: int = 20) -> list[str]:
 
 
 #=========================== E-Number ===========================
-def e_number_info(codes: list[str], csv_path: str = "data/E Numbers.csv") -> dict[str, dict]:
+def e_number_info(codes: list[str], csv_path: str = app_config.e_numbers_path) -> dict[str, dict]:
     df = pd.read_csv(csv_path)
     df["E-code"] = df["E-code"].str.upper().str.replace(r"\s+", "", regex=True)
 
@@ -126,7 +126,7 @@ def ing_desc(ing):
 #=========================== Get Warnings ===========================
 def warnings(ingredient):
   if ingredient.lower() in warning_df.index:
-    warnings_data = warning_df.loc[ingredient].to_dict()
+    warnings_data = warning_df.loc[ingredient.lower()].to_dict()
     return helper_funcs.parse_warning_data(warnings_data)
   else:
     return {"warnings": [], "confidence scores": [], "related papers": []}

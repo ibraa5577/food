@@ -53,8 +53,13 @@ FORMATTER_SCHEMA = {
         "warnings": [],
         "allergens": []
       },
-      "banned": "",
-      "research_papers": []
+      "banned": "false",
+      "research_papers": [
+        {
+          "title": "",
+          "doi": ""
+        }
+      ]
     }
   ],
   "notes": {
