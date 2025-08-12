@@ -4,12 +4,12 @@ import pandas as pd
 import urllib.parse
 import re
 import json
-
+import app_config
 
 # Function
 # Schema
 
-warning_df = pd.read_csv("data/Warnings.csv").set_index("ingredient")
+warning_df = pd.read_csv(app_config.warnings_path).set_index("ingredient")
 warning_df.index = warning_df.index.astype(str).str.strip().str.lower()
 relevant_keywords = [
     # Core food/health context
@@ -39,7 +39,7 @@ def aliases(name: str, top: int = 20) -> list[str]:
 
 
 #=========================== E-Number ===========================
-def e_number_info(codes: list[str], csv_path: str = "data/E Numbers.csv") -> dict[str, dict]:
+def e_number_info(codes: list[str], csv_path: str = app_config.e_numbers_path) -> dict[str, dict]:
     df = pd.read_csv(csv_path)
     df["E-code"] = df["E-code"].str.upper().str.replace(r"\s+", "", regex=True)
 
