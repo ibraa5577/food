@@ -20,32 +20,32 @@
   },
   "micronutrients": [
     {
-      "name": "vitamin_d",
+      "name": "Vitamin D",
       "value": 3.0,
       "unit": "mcg"
     },
     {
-      "name": "cholesterol",
+      "name": "Cholesterol",
       "value": 16.0,
       "unit": "mg"
     },
     {
-      "name": "sodium",
-      "value": 120.0,
-      "unit": "mg"
-    },
-    {
-      "name": "calcium",
+      "name": "Calcium",
       "value": 50.0,
       "unit": "mg"
     },
     {
-      "name": "iron",
+      "name": "Iron",
       "value": 1.2,
       "unit": "mg"
     },
     {
-      "name": "potassium",
+      "name": "Sodium",
+      "value": 120.0,
+      "unit": "mg"
+    },
+    {
+      "name": "Potassium",
       "value": 180.0,
       "unit": "mg"
     }
@@ -53,7 +53,7 @@
   "ingredients": [
     {
       "name": "Whole Grain Oats",
-      "description": "Whole grain oats are the seeds of the oat plant, consumed as a cereal grain. They are a good source of dietary fiber and various nutrients.",
+      "description": "Whole grain oats are the seeds of the oat plant, which are processed into various forms for consumption.  They're a common breakfast cereal and provide fiber and nutrients.",
       "category": "Cereal",
       "other_names": [],
       "safety": {
@@ -63,29 +63,24 @@
       "banned": false,
       "research_papers": [
         {
-          "title": "Synergetic effects of Lactobacillus plantarum and Rhizopus oryzae on physicochemical, nutritional and antioxidant properties of whole-grain oats (Avena sativa L.) during solid-state fermentation",
-          "doi": "10.1016/j.lwt.2021.112687"
+          "title": "Major Cereal Grain Fibers and Psyllium in Relation to Cardiovascular Health",
+          "doi": "10.3390/nu5051471"
         },
         {
-          "title": "Impact of whole grains on the gut microbiota: the next frontier for oats?",
-          "doi": "10.1017/s0007114514002244"
+          "title": "Biomarkers of cereal food intake",
+          "doi": "10.1186/s12263-019-0651-9"
         },
         {
-          "title": "Oats, more than just a whole grain: an introduction",
-          "doi": "10.1017/s0007114514002712"
+          "title": "A comparative risk assessment of burden of disease and injury attributable to 67 risk factors and risk factor clusters in 21 regions, 1990\u20132010: a systematic analysis for the Global Burden of Disease Study 2010",
+          "doi": "10.1016/s0140-6736(12)61766-8"
         }
       ]
     },
     {
       "name": "Sugar",
-      "description": "Sugar, also known as sucrose or table sugar, is a naturally occurring carbohydrate found in many plants. It is widely used as a sweetener in food and beverages.",
+      "description": "Sugar is a common sweetener derived from sugarcane or sugar beets, used in many food products for its flavor and texture.",
       "category": "Sweetener",
-      "other_names": [
-        "sucrose",
-        "57-50-1",
-        "saccharose",
-        "table sugar"
-      ],
+      "other_names": ["sucrose", "57-50-1", "saccharose", "Table sugar"],
       "safety": {
         "warnings": [],
         "allergens": []
@@ -93,23 +88,23 @@
       "banned": false,
       "research_papers": [
         {
-          "title": "Top Value Added Chemicals from Biomass: Volume I -- Results of Screening for Potential Candidates from Sugars and Synthesis Gas",
-          "doi": "10.2172/15008859"
+          "title": "Major food sources of calories, added sugars, and saturated fat and their contribution to essential nutrient intakes in the U.S. diet: data from the national health and nutrition examination survey (2003\u20132006)",
+          "doi": "10.1186/1475-2891-12-116"
         },
         {
-          "title": "Evidence for sugar addiction: Behavioral and neurochemical effects of intermittent, excessive sugar intake",
-          "doi": "10.1016/j.neubiorev.2007.04.019"
+          "title": "Added sugar and sugar-sweetened foods and beverages and the risk of pancreatic cancer in the National Institutes of Health\u2013AARP Diet and Health Study",
+          "doi": "10.1093/ajcn/88.2.431"
         },
         {
-          "title": "Sugar-Sweetened Beverages and Risk of Metabolic Syndrome and Type 2 Diabetes",
-          "doi": "10.2337/dc10-1079"
+          "title": "Global trends in added sugars and non-nutritive sweetener use in the packaged food supply: drivers and implications for public health",
+          "doi": "10.1017/s1368980022001598"
         }
       ]
     },
     {
       "name": "MSG",
-      "description": "MSG, or monosodium glutamate, is a sodium salt of the amino acid glutamic acid. It's used as a flavor enhancer in many foods.",
-      "category": "Seasoning",
+      "description": "MSG, or monosodium glutamate, is a flavor enhancer commonly added to processed foods. It's a sodium salt of glutamic acid, an amino acid.",
+      "category": "Additive",
       "other_names": [
         "Sodium glutamate",
         "Glutamate, Sodium",
@@ -129,22 +124,22 @@
       "banned": false,
       "research_papers": [
         {
-          "title": "MSG-GAN: Multi-Scale Gradients for Generative Adversarial Networks",
-          "doi": "10.1109/cvpr42600.2020.00782"
+          "title": "Monosodium glutamate as a tool to reduce sodium in foodstuffs: Technological and safety aspects",
+          "doi": "10.1002/fsn3.499"
         },
         {
-          "title": "Monosodium glutamate (MSG)-obese rats develop glucose intolerance and insulin resistance to peripheral glucose uptake",
-          "doi": "10.1590/s0100-879x1997000500016"
+          "title": "Characterization of a Potential Probiotic Lactobacillus brevis RK03 and Efficient Production of \u03b3-Aminobutyric Acid in Batch Fermentation",
+          "doi": "10.3390/ijms19010143"
         },
         {
-          "title": "A new Saharan dust source activation frequency map derived from MSG\u2010SEVIRI IR\u2010channels",
-          "doi": "10.1029/2007gl030168"
+          "title": "Worldwide flavor enhancer monosodium glutamate combined with high lipid diet provokes metabolic alterations and systemic anomalies: An overview",
+          "doi": "10.1016/j.toxrep.2021.04.009"
         }
       ]
     },
     {
       "name": "Palm Oil",
-      "description": "Palm oil is an edible vegetable oil derived from the fruit of the oil palm tree. It is widely used in food processing and other industries.",
+      "description": "Palm oil is a vegetable oil extracted from the fruit of the oil palm tree.  It's used widely in food and other industries.",
       "category": "Oil",
       "other_names": [],
       "safety": {
@@ -154,22 +149,22 @@
       "banned": false,
       "research_papers": [
         {
-          "title": "Kinetics of palm oil transesterification in a batch reactor",
-          "doi": "10.1007/s11746-000-0198-y"
+          "title": "Coconut (Cocos nucifera L.: Arecaceae): In health promotion and disease prevention",
+          "doi": "10.1016/s1995-7645(11)60078-3"
         },
         {
-          "title": "Palm oil refining",
-          "doi": "10.1002/ejlt.200600307"
+          "title": "Balancing functional and health benefits of food products formulated with palm oil as oil sources",
+          "doi": "10.1016/j.heliyon.2022.e11041"
         },
         {
-          "title": "Biological and Nutritional Properties of Palm Oil and Palmitic Acid: Effects on Health",
-          "doi": "10.3390/molecules200917339"
+          "title": "Nitrogen management is essential to prevent tropical oil palm plantations from causing ground-level ozone pollution",
+          "doi": "10.1073/pnas.0907541106"
         }
       ]
     },
     {
       "name": "Cocoa Powder",
-      "description": "Cocoa powder is a product derived from cocoa beans after removing the cocoa butter. It is commonly used as a flavoring ingredient and source of antioxidants in many foods.",
+      "description": "Cocoa powder is a product of processed cocoa beans, often used in baking and confectionery for its rich flavor and color.",
       "category": "Flavoring",
       "other_names": [],
       "safety": {
@@ -179,110 +174,104 @@
       "banned": false,
       "research_papers": [
         {
-          "title": "Effects of cocoa powder and dark chocolate on LDL oxidative susceptibility and prostaglandin concentrations in humans",
-          "doi": "10.1093/ajcn/74.5.596"
+          "title": "Nutritional, biochemical, and clinical applications of carob: A review",
+          "doi": "10.1002/fsn3.3367"
         },
         {
-          "title": "Cocoa powder enhances the level of antioxidative activity in rat plasma",
-          "doi": "10.1017/s0007114500002014"
+          "title": "Heavy Metal Toxicity and the Environment",
+          "doi": "10.1007/978-3-7643-8340-4_6"
         },
         {
-          "title": "Continuous intake of polyphenolic compounds containing cocoa powder reduces LDL oxidative susceptibility and has beneficial effects on plasma HDL-cholesterol concentrations in humans",
-          "doi": "10.1093/ajcn/85.3.709"
+          "title": "Effect of roasting conditions on cocoa bioactivity and gut microbiota modulation",
+          "doi": "10.1039/d1fo01155c"
         }
       ]
     },
     {
       "name": "Whey Protein Concentrate",
-      "description": "Whey protein concentrate is a byproduct of cheese production. It is a rich source of protein and is often used as a dietary supplement or ingredient in various food products.",
+      "description": "Whey protein concentrate is a byproduct of cheese production, rich in protein and commonly used in protein supplements and other foods.",
       "category": "Protein Supplement",
       "other_names": [],
       "safety": {
         "warnings": [],
-        "allergens": [
-          "Milk"
-        ]
+        "allergens": ["Milk"]
       },
       "banned": false,
       "research_papers": [
         {
-          "title": "Whey Protein Concentrate Edible Film Activated with Cinnamon Essential Oil",
-          "doi": "10.1111/jfpp.12086"
+          "title": "Stability of Lactobacillus rhamnosus GG incorporated in edible films: Impact of anionic biopolymers and whey protein concentrate",
+          "doi": "10.1016/j.foodhyd.2017.04.014"
         },
         {
-          "title": "Microstructural, textural, and sensory characteristics of probiotic yogurts fortified with sodium calcium caseinate or whey protein concentrate",
-          "doi": "10.3168/jds.2011-5297"
+          "title": "Nanodroplets of Docosahexaenoic Acid-Enriched Algae Oil Encapsulated within Microparticles of Hydrocolloids by Emulsion Electrospraying Assisted by Pressurized Gas",
+          "doi": "10.3390/nano10020270"
         },
         {
-          "title": "Production of antioxidant hydrolyzates from a whey protein concentrate with thermolysin: Optimization by response surface methodology",
-          "doi": "10.1016/j.lwt.2010.06.017"
+          "title": "NEW GENERATION OF HEALTHY SNACK FOOD BY SUPERCRITICAL FLUID EXTRUSION",
+          "doi": "10.1111/j.1745-4549.2009.00372.x"
         }
       ]
     },
     {
       "name": "Skim Milk",
-      "description": "Skim milk is cow's milk that has had most of its fat removed. It is a good source of protein and calcium.",
+      "description": "Skim milk is cow's milk with most of the fat removed.  It's a common ingredient in many foods and beverages.",
       "category": "Dairy",
       "other_names": [],
       "safety": {
         "warnings": [],
-        "allergens": [
-          "Milk"
-        ]
+        "allergens": ["Milk"]
       },
       "banned": false,
       "research_papers": [
         {
-          "title": "An extensive outbreak of staphylococcal food poisoning due to low-fat milk in Japan: estimation of enterotoxin A in the incriminated milk and powdered skim milk",
-          "doi": "10.1017/s0950268802007951"
+          "title": "Dietary fat intake and risk of prostate cancer: A prospective study of 25,708 Norwegian men",
+          "doi": "10.1002/(sici)1097-0215(19971127)73:5<634::aid-ijc4>3.0.co;2-y"
         },
         {
-          "title": "The Purification of a Lipoprotein Lipase from Bovine Skim Milk",
-          "doi": "10.1016/s0021-9258(19)44784-4"
+          "title": "A Five-Strain Probiotic Combination Reduces Pathogen Shedding and Alleviates Disease Signs in Pigs Challenged with Salmonella enterica Serovar Typhimurium",
+          "doi": "10.1128/aem.01840-06"
         },
         {
-          "title": "Dissociation of the glycaemic and insulinaemic responses to whole and skimmed milk",
-          "doi": "10.1079/bjn20041304"
+          "title": "Bovine milk in human nutrition \u2013 a review",
+          "doi": "10.1186/1476-511x-6-25"
         }
       ]
     },
     {
       "name": "Soy Lecithin",
-      "description": "Soy lecithin is a phospholipid derived from soybeans. It is widely used as an emulsifier in food products.",
+      "description": "Soy lecithin is an emulsifier extracted from soybeans, frequently used in food products to improve texture and stability.",
       "category": "Emulsifier",
       "other_names": [],
       "safety": {
         "warnings": [],
-        "allergens": [
-          "Soy"
-        ]
+        "allergens": ["Soy"]
       },
       "banned": false,
       "research_papers": [
         {
-          "title": "Oxidative Stability of Egg and Soy Lecithin as Affected by Transition Metal Ions and pH in Emulsion",
-          "doi": "10.1021/jf8022832"
+          "title": "Natural Pigments of Anthocyanin and Betalain for Coloring Soy-Based Yogurt Alternative",
+          "doi": "10.3390/foods9060771"
         },
         {
-          "title": "Catastrophic inversion and rheological behavior in soy lecithin and Tween 80 based food emulsions",
-          "doi": "10.1016/j.jfoodeng.2012.12.008"
+          "title": "Encapsulation of Centella asiatica leaf extract in liposome: Study on structural stability, degradation kinetics and fate of bioactive compounds during storage",
+          "doi": "10.1016/j.focha.2023.100202"
         },
         {
-          "title": "Pigmentation and carotenoid content of shrimp fed with Haematococcus pluvialis and soy lecithin",
-          "doi": "10.1111/j.1365-2095.2010.00794.x"
+          "title": "Dietary Emulsifiers Alter Composition and Activity of the Human Gut Microbiota in vitro, Irrespective of Chemical or Natural Emulsifier Origin",
+          "doi": "10.3389/fmicb.2020.577474"
         }
       ]
     },
     {
       "name": "Salt",
-      "description": "Salt, primarily sodium chloride, is a common seasoning and preservative used in various food products. It enhances flavor and inhibits microbial growth.",
+      "description": "Salt, primarily sodium chloride, is a common seasoning and preservative used in food preparation and preservation.",
       "category": "Seasoning",
       "other_names": [
         "sodium chloride",
         "7647-14-5",
-        "table salt",
-        "common salt",
-        "dendritis"
+        "Table salt",
+        "Common salt",
+        "Dendritis"
       ],
       "safety": {
         "warnings": [],
@@ -291,22 +280,22 @@
       "banned": false,
       "research_papers": [
         {
-          "title": "Improving crop salt tolerance",
-          "doi": "10.1093/jxb/erh003"
+          "title": "Malnutrition and health in developing countries",
+          "doi": "10.1503/cmaj.050342"
         },
         {
-          "title": "Comparative physiology of salt and water stress",
-          "doi": "10.1046/j.0016-8025.2001.00808.x"
+          "title": "Diet, nutrition and the prevention of cancer",
+          "doi": "10.1079/phn2003588"
         },
         {
-          "title": "Bile salt biotransformations by human intestinal bacteria",
-          "doi": "10.1194/jlr.r500013-jlr200"
+          "title": "Socio-economic, demographic, lifestyle and health characteristics associated with consumption of fatty-sweetened and fatty-salted foods in middle-aged French adults",
+          "doi": "10.1017/s0007114510004174"
         }
       ]
     },
     {
       "name": "Natural Flavors",
-      "description": "Natural flavors are substances derived from natural sources, such as fruits, spices, or herbs, that impart flavor to food products.",
+      "description": "Natural flavors are flavoring agents derived from natural sources like plants, fruits, or spices, enhancing the taste and aroma of food.",
       "category": "Flavoring",
       "other_names": [],
       "safety": {
@@ -316,22 +305,22 @@
       "banned": false,
       "research_papers": [
         {
-          "title": "Yukawa alignment from natural flavor conservation",
-          "doi": "10.1103/physrevd.84.055021"
+          "title": "Antifungal Microbial Agents for Food Biopreservation\u2014A Review",
+          "doi": "10.3390/microorganisms5030037"
         },
         {
-          "title": "Updated procedure for the safety evaluation of natural flavor complexes used as ingredients in food",
-          "doi": "10.1016/j.fct.2018.01.021"
+          "title": "Nanoencapsulation of Promising Bioactive Compounds to Improve Their Absorption, Stability, Functionality and the Appearance of the Final Food Products",
+          "doi": "10.3390/molecules26061547"
         },
         {
-          "title": "FEMA GRAS assessment of natural flavor complexes: Citrus-derived flavoring ingredients",
-          "doi": "10.1016/j.fct.2018.11.052"
+          "title": "Microbial Succession and Flavor Production in the Fermented Dairy Beverage Kefir",
+          "doi": "10.1128/msystems.00052-16"
         }
       ]
     },
     {
       "name": "Artificial Flavors",
-      "description": "Artificial flavors are synthetically produced substances that mimic the taste and aroma of natural flavors.",
+      "description": "Artificial flavors are synthetic flavoring compounds designed to mimic or enhance the taste of natural ingredients.",
       "category": "Flavoring",
       "other_names": [],
       "safety": {
@@ -341,22 +330,22 @@
       "banned": false,
       "research_papers": [
         {
-          "title": "Liquid Chromatographic Determination of Methyl Anthranilate in Artificially Flavored Nonalcoholic Beverages",
-          "doi": "10.1093/jaoac/84.2.493"
+          "title": "Current Status of Evidence for a New Diagnosis: Food Addiction-A Literature Review",
+          "doi": "10.3389/fpsyt.2021.824936"
         },
         {
-          "title": "Preference of Calves for a Concentrate Feed with and Without Artificial Flavors",
-          "doi": "10.3168/jds.s0022-0302(61)89809-3"
+          "title": "Nonnutritive Sweeteners: Current Use and Health Perspectives",
+          "doi": "10.2337/dc12-9002"
         },
         {
-          "title": "Natural and Artificial Flavors",
-          "doi": "10.1126/science.317.5836.296d"
+          "title": "The Influence of Colorants, Flavorants and Product Identity on Perceptions of Naturalness",
+          "doi": "10.3390/foods8080317"
         }
       ]
     },
     {
       "name": "BHT",
-      "description": "BHT, or butylated hydroxytoluene, is a synthetic antioxidant used as a food preservative to prevent rancidity.",
+      "description": "BHT, or butylated hydroxytoluene, is a synthetic antioxidant used to prolong the shelf life of certain food products.",
       "category": "Antioxidant",
       "other_names": [
         "2,6-Di-tert-butyl-4-methylphenol",
@@ -372,72 +361,72 @@
       "banned": false,
       "research_papers": [
         {
-          "title": "The influence of BHA, BHT and TBHQ on the oxidation stability of soybean oil ethyl esters (biodiesel)",
-          "doi": "10.1590/s0103-50532007000200026"
+          "title": "Polyphenols profile and antioxidant activity of skin and pulp of a rare apple from Marche region (Italy)",
+          "doi": "10.1186/1752-153x-8-45"
         },
         {
-          "title": "BHT Blocks NF\u2010\u03baB activation and Ethanol\u2010Induced Brain Damage",
-          "doi": "10.1111/j.1530-0277.2006.00239.x"
+          "title": "Anti-inflammatory, antioxidant and antihepatotoxic effects of Spirulina platensis against d-galactosamine induced hepatotoxicity in rats",
+          "doi": "10.1016/j.sjbs.2018.01.003"
+        },
+        {
+          "title": "Watermelon as a potential fruit snack",
+          "doi": "10.1080/10942912.2019.1584212"
         }
       ]
     },
     {
       "name": "Milk",
-      "description": "Milk is a nutrient-rich liquid produced by mammals. It is widely consumed as a beverage and used in various food products.",
+      "description": "Milk is a common dairy product from mammals, often cow's milk, containing proteins, fats, sugars, and other nutrients.",
       "category": "Dairy",
       "other_names": [],
       "safety": {
         "warnings": [],
-        "allergens": [
-          "Milk"
-        ]
+        "allergens": ["Milk"]
       },
       "banned": false,
       "research_papers": [
         {
-          "title": "Spectrophotometric Assay Using o-Phthaldialdehyde for Determination of Proteolysis in Milk and Isolated Milk Proteins",
-          "doi": "10.3168/jds.s0022-0302(83)81926-2"
+          "title": "Commercial Utilization of Minor Milk Components in the Health and Food Industries",
+          "doi": "10.3168/jds.s0022-0302(95)76886-2"
         },
         {
-          "title": "Exosomes with Immune Modulatory Features Are Present in Human Breast Milk",
-          "doi": "10.4049/jimmunol.179.3.1969"
+          "title": "Health-promoting properties of bioactive peptides derived from milk proteins in infant food: a review",
+          "doi": "10.1007/s13594-013-0152-3"
         },
         {
-          "title": "Bovine milk in human nutrition \u2013 a review",
-          "doi": "10.1186/1476-511x-6-25"
+          "title": "Scientific Opinion on the risks for human health related to the presence of tetrahydrocannabinol (THC) in milk and other food of animal origin",
+          "doi": "10.2903/j.efsa.2015.4141"
         }
       ]
     },
     {
       "name": "Soy",
-      "description": "Soy is a legume and a source of protein and isoflavones. It is used in various forms in human diets.",
+      "description": "Soybeans are legumes cultivated for their seeds, which are processed into various products rich in protein and other nutrients.",
       "category": "Legume",
       "other_names": [],
       "safety": {
         "warnings": [],
-        "allergens": [
-          "Soy"
-        ]
+        "allergens": ["Soy"]
       },
       "banned": false,
       "research_papers": [
         {
-          "title": "The Clinical Importance of the Metabolite Equol\u2014A Clue to the Effectiveness of Soy and Its Isoflavones",
-          "doi": "10.1093/jn/132.12.3577"
+          "title": "Adolescent and adult soy food intake and breast cancer risk: results from the Shanghai Women\u2019s Health Study",
+          "doi": "10.3945/ajcn.2008.27361"
         },
         {
-          "title": "Soy Protein, Isoflavones, and Cardiovascular Health",
-          "doi": "10.1161/circulationaha.106.171052"
+          "title": "Soy foods: are they useful for optimal bone health?",
+          "doi": "10.1177/1759720x11417749"
         },
         {
-          "title": "Soy, Soy Foods and Their Role in Vegetarian Diets",
-          "doi": "10.3390/nu10010043"
+          "title": "Soy Food Intake and Risk of Lung Cancer: Evidence From the Shanghai Women's Health Study and a Meta-Analysis",
+          "doi": "10.1093/aje/kws168"
         }
       ]
     },
     {
       "name": "E951",
-      "description": "Aspartame, also known as E951, is an artificial sweetener used as a sugar substitute in many foods and beverages.",
+      "description": "Aspartame is an artificial sweetener commonly used in diet products and beverages.",
       "category": "Sweetener",
       "other_names": [
         "aspartame",
@@ -453,29 +442,24 @@
       "banned": false,
       "research_papers": [
         {
-          "title": "Mosquito Repellent Activity of the Methanol Extracts of Some Ascidian Species",
-          "doi": "10.1076/phbi.40.5.358.8456"
+          "title": "Sugar alcohols\u2014their role in the modern world of sweeteners: a review",
+          "doi": "10.1007/s00217-015-2437-7"
         },
         {
-          "title": "Nanoemulsified Mentha piperita and Eucalyptus globulus oils exhibit enhanced repellent activities against Anopheles stephensi",
-          "doi": "10.4103/1995-7645.271292"
+          "title": "Sweeteners permitted in the European Union: safety aspects",
+          "doi": "10.1080/17482970600982719"
         },
         {
-          "title": "Artificial sweeteners and cancer risk: Results from the NutriNet-Sant\u00e9 population-based cohort study",
-          "doi": "10.1371/journal.pmed.1003950"
+          "title": "Artificial sweeteners and risk of cardiovascular diseases: results from the prospective NutriNet-Sant\u00e9 cohort",
+          "doi": "10.1136/bmj-2022-071204"
         }
       ]
     }
   ],
   "notes": {
-    "positive": [
-      "High in Protein"
-    ],
-    "neutral": [],
-    "negative": [
-      "High in Sugar",
-      "Contains Trans-Fat"
-    ],
+    "positive": ["High in Protein"],
+    "neutral": ["Contains Preservative (BHT)"],
+    "negative": ["High in Sugar", "Contains Trans-Fat"],
     "critical": []
   }
 }
