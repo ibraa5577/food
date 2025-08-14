@@ -136,7 +136,7 @@ HARD RULES
 2) Types:
    - Strings: use "" if missing.
    - Numbers: use 0.0 if missing.
-   - Booleans: use true/false (never quoted).
+   - Strings: use "true"/"false" (quoted, NOT BOOL).
    - Arrays: [] if empty.
    - Objects: include all required keys with defaults if missing.
 3) Place units ONLY in `micronutrients[i].unit`. All values in `nutritional_facts` are plain numbers (per serving). Do NOT append unit strings there.
@@ -145,6 +145,8 @@ HARD RULES
 6) Deduplicate all lists (`other_names`, warnings, allergens, research papers by (title, doi)).
 7) Normalize obvious E-number aliases in ingredients if present (e.g., prefer "E951" to "Aspartame" when OCR shows both; keep both by listing the other in `other_names`).
 8) No trailing commas. Must pass `json.loads()`.
+9) Never use Non-breaking hyphens (U+2011) or U+2014 (em dash) or any other non-standard characters in the output, always use standard hyphens (U+002D).
+10) Always use smaall letters for everything except for the paper tiles and doi, which should be in the same case as the input.
 
 MAPPING AND PRIORITY
 --------------------

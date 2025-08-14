@@ -192,7 +192,7 @@ def formatter(text: str, nutrition):
 # -------------------------------------Final Output-------------------------------------
 final_output = formatter(all_data, cleaned_ocr)
 # -------------------------------------Save Output to Json-------------------------------------
-with open("output2.json", "w") as f:
+with open("output.json", "w") as f:
     json.dump(final_output, f, indent=2)
 
 print("Json Saved to output.json")
@@ -201,6 +201,8 @@ end = time.time()
 print(f"Process ended. Total time taken: {end - start:.2f} seconds")
 
 
-#Changes
-# - Added time tracking for the entire process
-# - converting main file from ipynb to .py format
+# Changes
+# formatter prompt slightly changed (true/false -->"true"/"false")
+# Added a new rule in the formatter prompt to avoid non-breaking hyphens
+# Added a new rule in the formatter prompt to avoid non-standard characters
+# Some comments are removed/added for clarity

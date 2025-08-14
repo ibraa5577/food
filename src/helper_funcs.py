@@ -1,6 +1,4 @@
 
-
-
 def parse_warning_data(data: dict) -> dict:
     return {
         "warnings": data["warnings"].split("/"),

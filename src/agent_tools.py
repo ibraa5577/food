@@ -8,9 +8,6 @@ import app_config
 import requests
 import html
 
-# Function
-# Schema
-
 warning_df = pd.read_csv(app_config.warnings_path).set_index("ingredient")
 warning_df.index = warning_df.index.astype(str).str.strip().str.lower()
 relevant_keywords = [
@@ -28,6 +25,11 @@ relevant_keywords = [
     # Study types & context
     'clinical', 'trial', 'meta-analysis', 'review', 'animal study', 'biomarker'
 ]
+
+#=========================== Tools ===========================
+# Function
+# Schema
+
 #=========================== Aliases ===========================
 def aliases(name: str, top: int = 20) -> list[str]:
     base = "https://pubchem.ncbi.nlm.nih.gov/rest/pug"
@@ -58,9 +60,6 @@ def e_number_info(codes: list[str], csv_path: str = app_config.e_numbers_path) -
     return info
 
 
-
-
-#=========================== Safety ===========================
 
 
 #=========================== Research Papers ===========================
@@ -114,15 +113,6 @@ def research_papers(
         return []
 
 
-
-#=========================== ADI ===========================
-
-
-
-#=========================== Ingredient Description ===========================
-def ing_desc(ing):
-  pass
-
 #=========================== Get Warnings ===========================
 def warnings(ingredient):
   if ingredient.lower() in warning_df.index:
@@ -130,7 +120,6 @@ def warnings(ingredient):
     return helper_funcs.parse_warning_data(warnings_data)
   else:
     return {"warnings": [], "confidence scores": [], "related papers": []}
-
 
 
 #=========================== Get Allergens ===========================
