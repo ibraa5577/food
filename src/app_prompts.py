@@ -147,6 +147,7 @@ HARD RULES
 8) No trailing commas. Must pass `json.loads()`.
 9) Never use Non-breaking hyphens (U+2011) or U+2014 (em dash) or any other non-standard characters in the output, always use standard hyphens (U+002D).
 10) Always use smaall letters for everything except for the paper tiles and doi, which should be in the same case as the input.
+11) If serving per container is not given, set it to be same as serving size.
 
 MAPPING AND PRIORITY
 --------------------

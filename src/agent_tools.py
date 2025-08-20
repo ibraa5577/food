@@ -1,10 +1,10 @@
 import requests
-import helper_funcs
+from src import helper_funcs
 import pandas as pd
 import urllib.parse
 import re
 import json
-import app_config
+from src import app_config
 import requests
 import html
 
