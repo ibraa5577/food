@@ -13,4 +13,4 @@ url = "https://obligation-boundaries-passenger-performing.trycloudflare.com/proc
 files = {"file": open("1.jpg", "rb")}
 response = requests.post(url, files=files)
 print(response.text)
-print(response.json())```
+print(response.json())
