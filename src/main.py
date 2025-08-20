@@ -14,7 +14,9 @@ from src import app_config, agent_tools, app_prompts, tool_schemas, ocr, helper_
 from fastapi import FastAPI, File, UploadFile
 import re
 import tempfile
-
+import hashlib
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from collections import defaultdict
 
 # -------------------------------------Setup & Configurations-------------------------------------
 app = FastAPI(title="Kaust Project")
@@ -39,40 +41,7 @@ warnings_path = app_config.warnings_path
 e_numbers_path = app_config.e_numbers_path
 warning_df = pd.read_csv(warnings_path).set_index("ingredient")
 warning_df.index = warning_df.index.astype(str).str.strip().str.lower()
-
-# -------------------------------------DUMMY OCR Output-------------------------------------
-OCR_file = "ocr_text.txt"
-
-OCR_text = """
-NNUTRITION FACTS
-Serving Size: 30g
-Servings Per Container: about 10
-Calories 150
-Total Fat 8g
-Saturated Fat 3g
-Trans Fat 6g
-Cholesterol 16mg
-Sodium 120mg
-Total Carbohydrate 18g
-Dietary Fiber 2g
-Sugars 16g
-Protein 19g
-Vitamin D 3mcg
-Calcium 50mg
-Iron 1.2mg
-Potassium 180mg
-
-INGREDIENTS:
-Whole Grain Oats, Sugar, MSG, Palm Oil, Cocoa Powder (processed with Alkali), Whey Protein Concentrate, Skim Milk, Soy Lecithin, Salt, Natural Flavors, Artificial Flavors, BHT (for freshness), Milk, Soy.
-E951
-
-"""
-
-
 # -------------------------------------Cleaning Model-------------------------------------
-
-import hashlib
-
 _CLEAN_CACHE = {}          # key -> (ts, data)
 _CLEAN_TTL_OK = 24*3600    # 24h for successes
 _CLEAN_TTL_ERR = 300       # 5m for errors
@@ -189,9 +158,6 @@ def cache_set(tool: str, ingredient: str, data):
 
 
 # -------------------------------------Agentic Model-------------------------------------
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from collections import defaultdict
-
 def run_agent_model(cleaned_ocr: dict) -> dict:
   if not cleaned_ocr.get('ingredients'): return {}
   client = genai.Client(api_key=GEMINI_API_KEY)
@@ -245,13 +211,8 @@ def run_agent_model(cleaned_ocr: dict) -> dict:
 
 
 # -------------------------------------Formatter Model-------------------------------------
-
-
-
 formatter_model = gemini.GenerativeModel(models['FORMATTER_MODEL'])
-
 SCHEMA = app_config.FORMATTER_SCHEMA
-
 
 def _fill_defaults(node, template):
   """Recursively add any missing keys from template into node."""
