@@ -122,14 +122,5 @@ def warnings(ingredient):
     return {"warnings": [], "confidence scores": [], "related papers": []}
 
 
-#=========================== Get Allergens ===========================
-def allergens(ing):
-  pass
-
-#=========================== Get Health Score ===========================
-def health_score(ing):
-  pass
-
-
 
 

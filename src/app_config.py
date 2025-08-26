@@ -1,6 +1,3 @@
-
-
-
 # Models
 models = {
     "CLEANING_MODEL": "gemini-1.5-flash",
@@ -9,7 +6,7 @@ models = {
 }
 
 
-# Paths
+# Local DBs Paths
 warnings_path = "src/data/Warnings.csv"
 e_numbers_path = "src/data/E Numbers.csv"
 

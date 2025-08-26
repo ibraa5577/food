@@ -42,9 +42,9 @@ e_numbers_path = app_config.e_numbers_path
 warning_df = pd.read_csv(warnings_path).set_index("ingredient")
 warning_df.index = warning_df.index.astype(str).str.strip().str.lower()
 # -------------------------------------Cleaning Model-------------------------------------
-_CLEAN_CACHE = {}          # key -> (ts, data)
-_CLEAN_TTL_OK = 24*3600    # 24h for successes
-_CLEAN_TTL_ERR = 300       # 5m for errors
+_CLEAN_CACHE = {}
+_CLEAN_TTL_OK = 24*3600 # seconds
+_CLEAN_TTL_ERR = 300
 
 def _clean_key(s: str) -> str:
     # normalize & hash to keep memory small
@@ -135,8 +135,8 @@ def extract_ingredients_and_nutrition(ocr_text: str) -> dict:
 
 
 # -------------------------------------in-memory cache (tool, ingredient)-------------------------------------
-_CACHE = {}  # (tool_name, normalized_ingredient) -> (timestamp, data)
-_CACHE_TTL = 3600.0  # seconds
+_CACHE = {} 
+_CACHE_TTL = 3600.0  
 _CACHE_LOCK = threading.Lock()
 
 def _norm(x: str) -> str:
@@ -214,16 +214,6 @@ def run_agent_model(cleaned_ocr: dict) -> dict:
 formatter_model = gemini.GenerativeModel(models['FORMATTER_MODEL'])
 SCHEMA = app_config.FORMATTER_SCHEMA
 
-def _fill_defaults(node, template):
-  """Recursively add any missing keys from template into node."""
-  if isinstance(template, dict):
-    return {k: _fill_defaults(node.get(k) if isinstance(node, dict) else None, v)
-            for k, v in template.items()}
-  if isinstance(template, list):
-    return node if node else template
-  return node if node not in (None, "", []) else template
-
-# ---------- MAIN FUNCTION ----------
 def formatter(text: str, nutrition):
   schema_str = json.dumps(SCHEMA, indent=2)
   prompt = app_prompts.formatter_prompt(schema_str, text, nutrition)
@@ -252,7 +242,10 @@ def formatter(text: str, nutrition):
 #   print(f"Process ended. Total time taken: {end - start:.2f} seconds")
 
 
-# API Endpoints
+
+# -------------------------------------FastAPI-------------------------------------
+
+# Main Pipeline Endpoint
 @app.post("/process-image")
 async def process_image(file: UploadFile = File(...)):
 

@@ -1,4 +1,3 @@
-
 import textwrap
 
 def cleaning_prompt(ocr_text: str) -> str:
